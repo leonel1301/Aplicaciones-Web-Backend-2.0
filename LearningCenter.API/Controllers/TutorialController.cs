@@ -64,6 +64,7 @@ namespace LearningCenter.API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _tutorialDomain.delete(id);
         }
     }
 }

@@ -23,7 +23,7 @@ public class TutorialMySQLInfraestructure : ITutorialInfraestructure
         list.Add("Value SQL 2");
         list.Add("Value SQL 3");*/
 
-        return _learningCenterDbContext.Tutorials.ToList();
+        return _learningCenterDbContext.Tutorials.Where(category=> category.IsActive).ToList();
 
     }
 
@@ -31,6 +31,7 @@ public class TutorialMySQLInfraestructure : ITutorialInfraestructure
     {
         Tutorial tutorial = new Tutorial();
         tutorial.Name = name;
+        tutorial.IsActive = true;
 
         _learningCenterDbContext.Tutorials.Add(tutorial);
         
@@ -52,7 +53,17 @@ public class TutorialMySQLInfraestructure : ITutorialInfraestructure
     }
 
     public bool delete(int id)
-    {
-        throw new NotImplementedException();
+    {  
+        Tutorial tutorial =  _learningCenterDbContext.Tutorials.Find(id);
+        
+        tutorial.IsActive = false;
+
+        _learningCenterDbContext.Tutorials.Update(tutorial);
+
+        //_learningCenterDbContext.Tutorials.Remove(tutorial); Eliminacion física
+        
+        _learningCenterDbContext.SaveChanges();
+
+        return true;
     }
 }

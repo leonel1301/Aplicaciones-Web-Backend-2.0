@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using LearningCenter.Infraestructure;
 
 namespace LearningCenter.Domain;
@@ -25,7 +26,7 @@ public class TutorialDomain : ITutorialDomain
 
     public bool delete(int id)
     {
-        throw new NotImplementedException();
+        return _tutorialInfraestructure.delete(id);
     }
 
 
