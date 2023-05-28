@@ -1,3 +1,4 @@
+using LearningCenter.API.Request;
 using LearningCenter.Domain;
 using LearningCenter.Infraestructure;
 using LearningCenter.Infraestructure.Context;
@@ -24,12 +25,12 @@ public class BicycleController
         return _bicycleDomain.GetAll();
     }
     
-    [HttpPost]
-    [Route("api/bicycle")]
-    public bool save(string name)
-    {
-        return _bicycleDomain.save(name);
-    }
+    // [HttpPost]
+    // [Route("api/bicycle")]
+    // public bool save(string name)
+    // {
+    //     return _bicycleDomain.save(name);
+    // }
     
     [HttpPut]
     [Route("api/bicycle")]
@@ -45,5 +46,15 @@ public class BicycleController
         return _bicycleDomain.delete(id);
     }
     
+    [HttpPost]
+    [Route("api/bicycle")]
+    public void Post([FromBody] BicycleRequest request)
+    {
+        Bicycle bicycle = new Bicycle()
+        {
+            Name = request.Name
+        };
+        _bicycleDomain.save(bicycle.Name);
+    }
     
 }
