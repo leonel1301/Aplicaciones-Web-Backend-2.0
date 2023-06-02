@@ -2,9 +2,9 @@ using LearningCenter.Infraestructure.Models;
 
 namespace LearningCenter.Infraestructure;
 
-public interface ITutorialInfraestructure
+public interface IBicycleInfraestructure
 {
-    List<Tutorial> GetAll();
+    List<Bicycle> GetAll();
     
     public bool save(string name);
     public bool update(int id, string name);

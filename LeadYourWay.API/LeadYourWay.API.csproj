@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>LearningCenter.API</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,8 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LearningCenter.Domain\LearningCenter.Domain.csproj" />
-      <ProjectReference Include="..\LearningCenter.Infraestructure\LearningCenter.Infraestructure.csproj" />
+      <ProjectReference Include="..\LeadYourWay.Domain\LeadYourWay.Domain.csproj" />
+      <ProjectReference Include="..\LeadYourWay.Infraestructure\LeadYourWay.Infraestructure.csproj" />
     </ItemGroup>
 
 </Project>

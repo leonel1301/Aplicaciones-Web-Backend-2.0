@@ -4,10 +4,11 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>LearningCenter.Domain</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LearningCenter.Infraestructure\LearningCenter.Infraestructure.csproj" />
+      <ProjectReference Include="..\LeadYourWay.Infraestructure\LeadYourWay.Infraestructure.csproj" />
     </ItemGroup>
 
 </Project>

@@ -13,14 +13,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //dependecy inyection
-builder.Services.AddScoped<ITutorialInfraestructure, TutorialMySQLInfraestructure>();
-builder.Services.AddScoped<ITutorialDomain, TutorialDomain>();
+builder.Services.AddScoped<IBicycleInfraestructure, BicycleMySQLInfraestructure>();
+builder.Services.AddScoped<IBicycleDomain, BicycleDomain>();
 
 //Conexion a MySQL 
-var connectionString = builder.Configuration.GetConnectionString("learningCenterConnection");
+var connectionString = builder.Configuration.GetConnectionString("LeadYourWayConnection");
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 
-builder.Services.AddDbContext<LearningCenterDBContext>(
+builder.Services.AddDbContext<LeadYourWayDBContext>(
     dbContextOptions =>
     {
         dbContextOptions.UseMySql(connectionString,
@@ -35,7 +35,7 @@ builder.Services.AddDbContext<LearningCenterDBContext>(
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
-using (var context = scope.ServiceProvider.GetService<LearningCenterDBContext>())
+using (var context = scope.ServiceProvider.GetService<LeadYourWayDBContext>())
 {
     context.Database.EnsureCreated();
 }
